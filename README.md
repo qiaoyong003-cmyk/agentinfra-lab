@@ -17,9 +17,9 @@
 - Long-term memory governance
 - Enterprise AI support systems
 
-## Current Research
+## Research Cases
 
-### #01 Tool Calling Silent Failure
+### #01 · Tool Calling Silent Failure
 
 A real failure observed during Coding Agent integration testing:
 
@@ -28,20 +28,22 @@ A real failure observed during Coding Agent integration testing:
 - `finish_reason = tool_calls`
 - but actual `tool_calls = 0`
 
-2×2 test:
+**2×2 protocol × streaming test**
 
 | Protocol | Non-Streaming | Streaming |
 |---|---|---|
 | Anthropic | ✅ | ✅ |
 | OpenAI Compatible | ✅ | ❌ |
 
-Engineering rule:
+**Engineering rule**
 
 > Declared Tool Calling + Actual Tool Call = 0 → Hard Fail
 
-The key lesson:
+**Key lesson**
 
 > Don't assume it works. Prove it.
+
+👉 **[Read the full case →](./cases/01-tool-calling-silent-failure.md)**
 
 ## Existing Projects
 
