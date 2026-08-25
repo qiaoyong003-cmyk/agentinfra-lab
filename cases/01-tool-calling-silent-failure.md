@@ -18,6 +18,8 @@ Observed state:
 | Anthropic | ✅ | ✅ |
 | OpenAI Compatible | ✅ | ❌ |
 
+![Tool Calling 2x2 Test Matrix](../assets/tool-calling-2x2-matrix.png)
+
 ## Finding
 
 The failure only appeared in the OpenAI-compatible streaming path.
