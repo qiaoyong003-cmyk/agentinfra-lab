@@ -13,22 +13,15 @@ Observed state:
 
 ## Test Matrix
 
-| Protocol | Non-Streaming | Streaming |
-|---|---|---|
-| Anthropic | ✅ | ✅ |
-| OpenAI Compatible | ✅ | ❌ |
-
 <img src="../assets/tool-calling-2x2-matrix.png" width="520" alt="Tool Calling 2x2 Test Matrix">
 
-## Finding
+**Key observation:**  
+Only the OpenAI Compatible + Streaming path failed.
 
-The failure only appeared in the OpenAI-compatible streaming path.
+The upstream response declared:
 
-The upstream response declared Tool Calling, but no Tool Call payload was delivered.
+`finish_reason = tool_calls`
 
-## Engineering Defense
+but the streaming response contained:
 
-If the upstream declares Tool Calling but the actual Tool Call payload is empty:
-
-```text
-Hard Fail
+`delta.tool_calls = 0`
