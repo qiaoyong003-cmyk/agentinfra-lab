@@ -18,7 +18,7 @@ Observed state:
 | Anthropic | ✅ | ✅ |
 | OpenAI Compatible | ✅ | ❌ |
 
-![Tool Calling 2x2 Test Matrix](../assets/tool-calling-2x2-matrix.png)
+<img src="../assets/tool-calling-2x2-matrix.png" width="520" alt="Tool Calling 2x2 Test Matrix">
 
 ## Finding
 
