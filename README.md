@@ -1,6 +1,6 @@
 # AgentInfra Lab
 
-**LLM Reliability · Agent Engineering · Linux / Xinchuang**
+**LLM Reliability · Agent Engineering ·Linux / Private AI / Xinchuang**
 
 研究如何让 AI Agent 真正进入企业生产环境。
 
