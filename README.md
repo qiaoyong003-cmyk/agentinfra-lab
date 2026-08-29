@@ -45,6 +45,21 @@ A real failure observed during Coding Agent integration testing:
 
 👉 **[Read the full case →](./cases/01-tool-calling-silent-failure.md)**
 
+### #02 · Hidden Context Overhead
+
+A minimal LLM request containing only `hi` produced unexpectedly high input token usage.
+
+- Explicit input: ≈ 8–10 tokens
+- Anthropic path: `1300` input tokens
+- OpenAI Compatible path: `1063` prompt tokens
+- Difference between protocol paths: ≈ 237–240 tokens
+
+**Engineering lesson**
+
+> Don't assume what the model sees. Measure it.
+
+👉 **[Read the full case →](./cases/02-hidden-context-overhead.md)**
+
 ## Existing Projects
 
 ### llmc
