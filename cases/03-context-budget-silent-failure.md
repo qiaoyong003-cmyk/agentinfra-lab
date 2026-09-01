@@ -14,6 +14,8 @@ The system may have observability, status flags, and diagnostics, but if those s
 
 ---
 
+![Context budget silent failure](../assets/context-budget-silent-failure.png)
+
 ## Why Context Budget Exists
 
 A production Agent usually sends far more than the user's latest prompt.
