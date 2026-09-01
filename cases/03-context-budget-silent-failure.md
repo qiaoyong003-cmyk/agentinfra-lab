@@ -14,7 +14,7 @@ The system may have observability, status flags, and diagnostics, but if those s
 
 ---
 
-![Context budget silent failure](../assets/context-budget-silent-failure.png)
+![Context budget silent failure](../assets/context-budget-assembly.png)
 
 ## Why Context Budget Exists
 
