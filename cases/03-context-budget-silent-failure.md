@@ -13,8 +13,7 @@ This is a subtle reliability failure:
 The system may have observability, status flags, and diagnostics, but if those signals do not change execution behavior, the failure can continue propagating through the pipeline.
 
 ---
-
-![Context budget silent failure](../assets/context-budget-assembly.png)
+<img src="../assets/context-budget-assembly.png" width="520" alt="Hidden Context Overhead Test">
 
 ## Why Context Budget Exists
 
