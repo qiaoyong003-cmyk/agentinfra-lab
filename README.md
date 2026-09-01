@@ -60,6 +60,21 @@ A minimal LLM request containing only `hi` produced unexpectedly high input toke
 
 👉 **[Read the full case →](./cases/02-hidden-context-overhead.md)**
 
+### #03 · Context Budget Silent Failure
+
+The context budget subsystem detected an invalid runtime state, but downstream execution could still continue unless that state was explicitly enforced.
+
+- Context budget check: `over_budget_error = true`
+- Downstream risk: Assembler may continue building the Context Bundle
+- Reliability gap: error detection without control-flow enforcement
+- Current fix: explicit `raise OverBudgetError(...)` hard fail
+
+**Engineering lesson**
+
+> Error detection must change control flow.
+
+👉 **[Read the full case →](./cases/03-context-budget-silent-failure.md)**
+
 ## Existing Projects
 
 ### llmc
