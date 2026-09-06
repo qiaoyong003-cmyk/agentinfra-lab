@@ -25,6 +25,8 @@ The central failure was:
 
 > **Same visible value ≠ Same runtime type**
 
+<img src="../assets/04-real-database-type-boundary-failure.png" width="520" alt="Hidden Context Overhead Test">
+
 ---
 
 ## Incident
