@@ -75,6 +75,40 @@ The context budget subsystem detected an invalid runtime state, but downstream e
 
 👉 **[Read the full case →](./cases/03-context-budget-silent-failure.md)**
 
+### #04 · Real Database Type Boundary Failure
+
+A real failure observed when running the application against PostgreSQL:
+
+- Mock-based tests passed
+- The visible ID value was identical
+- Application input type was `str`
+- ORM return type was `uuid.UUID`
+- Valid owner checks failed and export filters could return zero records
+
+**Mock × real dependency comparison**
+
+| Validation Path | Mocked Tests | Real PostgreSQL |
+|---|---|---|
+| Runtime ID type | `str` | `uuid.UUID` |
+| Owner comparison | ✅ | ❌ |
+| Export / serialization path | ✅ | ❌ |
+
+**Root fix**
+
+> Native PostgreSQL UUID + Consistent Python-side `str` contract
+
+The shared model alias was applied across 45 UUID column declarations. The historical post-fix validation record was **58 passed**, with no database migration required.
+
+**Engineering rule**
+
+> Mocks must preserve boundary behavior, not only example values.
+
+**Key lesson**
+
+> Green tests are evidence. The business result is the acceptance criterion.
+
+👉 **[Read the full case →](./cases/04-real-database-type-boundary-failure.md)**
+
 ## Existing Projects
 
 ### llmc
