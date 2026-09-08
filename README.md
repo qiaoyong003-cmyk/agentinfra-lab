@@ -25,8 +25,8 @@ A real failure observed during Coding Agent integration testing:
 
 - HTTP 200
 - SDK returned normally
-- `finish_reason = tool_calls`
-- but actual `tool_calls = 0`
+- finish_reason = tool_calls
+- but actual tool_calls = 0
 
 **2×2 protocol × streaming test**
 
@@ -47,11 +47,11 @@ A real failure observed during Coding Agent integration testing:
 
 ### #02 · Hidden Context Overhead
 
-A minimal LLM request containing only `hi` produced unexpectedly high input token usage.
+A minimal LLM request containing only hi produced unexpectedly high input token usage.
 
 - Explicit input: ≈ 8–10 tokens
-- Anthropic path: `1300` input tokens
-- OpenAI Compatible path: `1063` prompt tokens
+- Anthropic path: 1300 input tokens
+- OpenAI Compatible path: 1063 prompt tokens
 - Difference between protocol paths: ≈ 237–240 tokens
 
 **Engineering lesson**
@@ -64,10 +64,10 @@ A minimal LLM request containing only `hi` produced unexpectedly high input toke
 
 The context budget subsystem detected an invalid runtime state, but downstream execution could still continue unless that state was explicitly enforced.
 
-- Context budget check: `over_budget_error = true`
+- Context budget check: over_budget_error = true
 - Downstream risk: Assembler may continue building the Context Bundle
 - Reliability gap: error detection without control-flow enforcement
-- Current fix: explicit `raise OverBudgetError(...)` hard fail
+- Current fix: explicit raise OverBudgetError(...) hard fail
 
 **Engineering lesson**
 
@@ -81,21 +81,21 @@ A real failure observed when running the application against PostgreSQL:
 
 - Mock-based tests passed
 - The visible ID value was identical
-- Application input type was `str`
-- ORM return type was `uuid.UUID`
+- Application input type was str
+- ORM return type was uuid.UUID
 - Valid owner checks failed and export filters could return zero records
 
 **Mock × real dependency comparison**
 
 | Validation Path | Mocked Tests | Real PostgreSQL |
 |---|---|---|
-| Runtime ID type | `str` | `uuid.UUID` |
+| Runtime ID type | str | uuid.UUID |
 | Owner comparison | ✅ | ❌ |
 | Export / serialization path | ✅ | ❌ |
 
 **Root fix**
 
-> Native PostgreSQL UUID + Consistent Python-side `str` contract
+> Native PostgreSQL UUID + Consistent Python-side str contract
 
 The shared model alias was applied across 45 UUID column declarations. The historical post-fix validation record was **58 passed**, with no database migration required.
 
@@ -108,6 +108,37 @@ The shared model alias was applied across 45 UUID column declarations. The histo
 > Green tests are evidence. The business result is the acceptance criterion.
 
 👉 **[Read the full case →](./cases/04-real-database-type-boundary-failure.md)**
+
+### #05 · Multi-Agent Code Review
+
+A parallel review of the NeverReset backend expanded the inspection surface:
+
+- 5 review Agents
+- 107 backend files
+- approximately 8,025 lines
+- 142 findings: 24 severe / 74 medium / 44 improvement
+- 12 severe findings fixed immediately across 14 files
+- 130 remaining findings registered
+
+**Finding × engineering state**
+
+| Review output | Engineering meaning |
+|---|---|
+| Finding generated | Candidate issue |
+| Evidence checked | Triaged issue |
+| Fix applied | Remediation candidate |
+| Regression passed | Verified fix |
+| Not fixed, recorded | Tracked technical debt |
+
+**Engineering rule**
+
+> Review Output ≠ Verified Defect
+
+**Key lesson**
+
+> AI can expand the review surface. It cannot replace verification.
+
+👉 **[Read the full case →](./cases/05-multi-agent-code-review.md)**
 
 ## Existing Projects
 
