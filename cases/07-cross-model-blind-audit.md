@@ -10,7 +10,7 @@ In this kind of workflow, a final “success” status says little about whether
 
 The response was a controlled **cross-model blind audit**: use different models to expose possible blind spots, then require original evidence and human review before accepting an observation.
 
-<img src="../assets/07-cross-model-audit/01-cover.png" width="520" alt="4,567 input records versus 4,556 output records; 11 require an explanation">
+<img src="../assets/01-cover.png" width="520" alt="4,567 input records versus 4,556 output records; 11 require an explanation">
 
 [Optional animated cover preview](../assets/07-cross-model-audit/01-cover-animation.gif)
 
