@@ -168,6 +168,35 @@ A long-term memory system must decide when to save automatically and when to ask
 
 👉 **[Read the full case →](./cases/06-ai-memory-confirmation-overload.md)**
 
+### #07 · Cross-Model Blind Audit
+
+A multi-stage computation finished successfully, but the underlying records still needed reconciliation. We used Claude to structure the audit and Codex and Grok to inspect the same evidence independently—not to vote on an answer.
+
+- 36 paired blind-test cases; 216 model × case × version judgments
+- 4 live audit batches; 8 first-round + 8 second-round reports
+- 87 raw first-round finding entries, **including duplicates**
+- 16 focused questions reopened against source evidence
+- At least 18 executed remediation actions and 6 automated QA classes
+- At least 5 open work items retained explicitly
+
+**Evidence boundary**
+
+| Surface signal | What the audit had to establish |
+|---|---|
+| Job finished | Did the input and output records reconcile? |
+| Two models agreed | Were the underlying evidence sources independent and correct? |
+| Action executed | Was the underlying issue fully resolved, contained, or still open? |
+
+**Engineering rule**
+
+> Model output identifies where to inspect. Evidence determines what is true.
+
+**Key lesson**
+
+> A review has converged only when findings, fixes, and open gaps all have traceable states.
+
+👉 **[Read the full case →](./cases/07-cross-model-blind-audit.md)**
+
 ## Existing Projects
 
 ### llmc
